@@ -19,8 +19,19 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'is_admin',
         'email',
+        'photo',
         'password',
+        'telephone',
+        'birth_date',
+        'cpf',
+        'street',
+        'number',
+        'neighborhood',
+        'city',
+        'state',
+        'cep',
     ];
 
     /**
@@ -41,4 +52,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function urls()
+    {
+        return $this->hasMany(Url::class);
+    }
 }
