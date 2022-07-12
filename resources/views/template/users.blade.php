@@ -38,6 +38,21 @@
           </div>
         </nav>
     </header>
+    <main class="bg-light mt-4">
+      <div class="container d-flex justify-content-center bg-secondary w-75">
+          <form class="row g-3 m-3">
+              <div class="col-auto">
+                <input type="text" class="form-control" size="80" placeholder="Coloque seu link aqui...">
+              </div>
+              <div class="col-auto">
+                <button type="submit" class="btn btn-info mb-3">Encurtar link</button>
+              </div>
+            </form>
+      </div>
+  </main>
+  >
+  
+  
     @yield('body')
 </body>
 </html>
