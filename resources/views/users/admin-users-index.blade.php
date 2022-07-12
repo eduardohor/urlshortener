@@ -38,7 +38,7 @@
                         <td>{{$user->birth_date}}</td>
                         <td>{{$user->cpf}}</td>
                         <td>{{date('d/m/Y', strtotime($user->created_at))}}</td>
-                        <td><a href="{{route('show.user', $user->id)}}" class="btn btn-info text-white">Visualizar</a></td>
+                        <td><a href="{{route('user.show', $user->id)}}" class="btn btn-info text-white">Visualizar</a></td>
                     </tr>
                     @endforeach
                 </tbody>

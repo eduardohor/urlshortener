@@ -22,11 +22,13 @@ Route::get('/', function () {
 
 Route::get('/shorten', [UrlController::class, 'index'])->name('shorten.index');
 
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/user/create', [UserController::class, 'create'])->name('users.create');
 Route::post('/user', [UserController::class, 'store'])->name('user.store');
 
-Route::get('/admin/users', [UserController::class, 'index'])->name('index.users');
-Route::get('/admin/user/{id}', [UserController::class, 'show'])->name('show.user');
+Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+Route::get('/admin/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::put('/admin/user/{id}', [UserController::class], 'update')->name('user.update');
+Route::get('/admin/user/{id}', [UserController::class, 'show'])->name('user.show');
+Route::get('/admin/users', [UserController::class, 'index'])->name('users.index');
 
 Route::get('/admin/urls', [UserController::class, 'indexUrls'])->name('index.urls');

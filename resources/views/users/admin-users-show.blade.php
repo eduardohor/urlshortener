@@ -3,8 +3,8 @@
 <div class='shadow-sm p-3 rounded w-100'>
     <div>
         <div class='mx-3'>
-            <h1 class="text-info mt-4">Editar Usuário {{$user->name}}</h1>
-                <a href="{{route('index.users')}}" class="btn btn-info text-white">
+            <h1 class="text-info mt-4">{{$user->name}}</h1>
+                <a href="{{route('users.index')}}" class="btn btn-info text-white">
                     Voltar<i class="fas fa-search"></i>
                 </a>
            
@@ -31,9 +31,15 @@
                         <td>{{$user->cpf}}</td>
                         <td>{{date('d/m/Y', strtotime($user->created_at))}}</td>
                         <td>
-                            <a href="" class="btn btn-warning text-white">Editar</a>
+                            <a href="{{route('user.edit', $user->id)}}" class="btn btn-warning text-white">Editar</a>
                         </td>
-                        <td><a href="" class="btn btn-danger text-white">Excluir</a></td>
+                        <td>
+                            <form action="{{route('user.destroy', $user->id)}}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger text-white">Excluir</button>
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
             </table>
