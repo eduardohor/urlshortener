@@ -13,7 +13,7 @@ class Url extends Model
         'user_id',
         'name',
         'normal_url',
-        'shortened_url',
+        'shortened'
     ];
 
     public function user()

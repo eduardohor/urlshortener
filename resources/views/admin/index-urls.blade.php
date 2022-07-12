@@ -27,7 +27,17 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                
+                        @foreach($urls as $url)
+                        <tr>
+                            <th scope="row">{{$url->id}}</th>
+                            <td>{{$url->user->name}}</td>
+                            <td>{{$url->name}}</td>
+                            <td>{{$url->normal_url}}</td>
+                            <td>{{$url->shortened}}</td>
+                            <td>{{date('d/m/Y', strtotime($url->created_at))}}</td>
+                            <td><a href="" class="btn btn-info text-white">Visualizar</a></td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

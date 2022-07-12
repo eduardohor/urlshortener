@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdateUserFormRequest;
+use App\Models\Url;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -60,6 +61,8 @@ class AdminController extends Controller
 
     public function indexUrls()
     {
-        return view('admin.index-urls');
+        $urls = Url::all();
+
+        return view('admin.index-urls', compact('urls'));
     }
 }
