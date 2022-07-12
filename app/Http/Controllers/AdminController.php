@@ -65,4 +65,42 @@ class AdminController extends Controller
 
         return view('admin.index-urls', compact('urls'));
     }
+
+    public function showUrl($id)
+    {
+        if (!$url = Url::find($id))
+            return redirect()->route('urls.index');
+
+        return view('admin.show-url', compact('url'));
+    }
+
+    public function editUrl($id)
+    {
+        if (!$url = Url::find($id))
+            return redirect()->route('urls.index');
+
+        return view('admin.edit-url', compact('url'));
+    }
+
+    public function updateUrl(Request $request, $id)
+    {
+        if (!$url = Url::find($id))
+            return redirect()->route('urls.index');
+
+        $data = $request->all();
+
+        $url->update($data);
+
+        return redirect()->route('urls.index');
+    }
+
+    public function destroyUrl($id)
+    {
+        if (!$url = Url::find($id))
+            return redirect()->route('urls.index');
+
+        $url->delete();
+
+        return redirect()->route('urls.index');
+    }
 }

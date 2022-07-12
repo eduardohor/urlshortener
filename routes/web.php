@@ -20,4 +20,8 @@ Route::put('/admin/dashboard/user/{id}', [AdminController::class], 'updateUser')
 Route::get('/admin/dashboard/user/{id}', [AdminController::class, 'showUser'])->name('user.show');
 Route::get('/admin/dashboard/users', [AdminController::class, 'indexUsers'])->name('users.index');
 
+Route::delete('/admin/dashboard/user/{id}', [AdminController::class, 'destroyUrl'])->name('url.destroy');
+Route::get('/admin/dashboard/url/{id}/edit', [AdminController::class, 'editUrl'])->name('url.edit');
+Route::put('/admin/dashboard/url/{id}', [AdminController::class], 'updateUrl')->name('url.update');
+Route::get('/admin/dashboard/url/{id}', [AdminController::class, 'showUrl'])->name('url.show');
 Route::get('/admin/dashboard/urls', [AdminController::class, 'indexUrls'])->name('urls.index');
