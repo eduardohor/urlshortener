@@ -43,8 +43,8 @@
             
             <div class='d-flex gap-3 mt-3'>
                 <div class='d-flex flex-column w-25 shadow-sm p-3 rounded'>
-                    <a href="/admin/users" class='btn btn-outline-info mb-1'><i class="fa-solid fa-user-large"></i> Usuários</a>
-                    <a href="/admin/urls" class='btn btn-outline-info'><i class="fa-solid fa-basket-shopping"></i> Urls</a>
+                    <a href="{{route('users.index')}}" class='btn btn-outline-info mb-1'><i class="fa-solid fa-user-large"></i> Usuários</a>
+                    <a href="{{route('urls.index')}}" class='btn btn-outline-info'><i class="fa-solid fa-basket-shopping"></i> Urls</a>
                 </div>
                 @yield('body')
             </div>  
