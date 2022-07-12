@@ -1,0 +1,43 @@
+@extends('template.admin')
+@section('body')
+<div class='shadow-sm p-3 rounded w-100'>
+    <div>
+        <div class='mx-3'>
+            <h1 class="text-info mt-4">Editar Usuário {{$user->name}}</h1>
+                <a href="{{route('index.users')}}" class="btn btn-info text-white">
+                    Voltar<i class="fas fa-search"></i>
+                </a>
+           
+            <table class="table table-striped ">
+                <thead class="text-center">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">Data de Nascimento</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Data de Cadastro</th>
+                        <th scope="col" colspan="2">Ações</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr>
+                        <th scope="row">{{$user->id}}</th>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->telephone}}</td>
+                        <td>{{$user->birth_date}}</td>
+                        <td>{{$user->cpf}}</td>
+                        <td>{{date('d/m/Y', strtotime($user->created_at))}}</td>
+                        <td>
+                            <a href="" class="btn btn-warning text-white">Editar</a>
+                        </td>
+                        <td><a href="" class="btn btn-danger text-white">Excluir</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@endsection

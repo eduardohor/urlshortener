@@ -16,7 +16,15 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return $users;
+        return view('users.admin-users-index', compact('users'));
+    }
+
+    public function show($id)
+    {
+        if (!$user = User::find($id))
+            return redirect()->route('user.index');
+
+        return view('users.admin-users-show', compact('user'));
     }
 
     public function create()
@@ -31,6 +39,12 @@ class UserController extends Controller
 
         $this->model->create($data);
 
-        return redirect()->route('users.index');
+        return redirect()->route('shorten.index');
+    }
+
+
+    public function indexUrls()
+    {
+        return view('users.admin-urls');
     }
 }
