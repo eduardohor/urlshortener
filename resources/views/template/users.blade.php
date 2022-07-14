@@ -26,7 +26,7 @@
                     <a href="" class="nav-link">Nome do usuário</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Minhas Url's</a>
+                    <a class="nav-link" href="{{route('users.list.urls')}}">Minhas Url's</a>
                   </li>
                   <li>
                     <a href="" class="btn btn-info">Sair</a>

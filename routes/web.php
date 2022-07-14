@@ -18,6 +18,7 @@ Route::post('/shorte/create', [UrlController::class, 'store'])->name('shorten.st
 
 Route::get('/user/create', [UserController::class, 'create'])->name('users.create');
 Route::post('/user', [UserController::class, 'store'])->name('user.store');
+Route::get('/user/urls', [UserController::class, 'listUrls'])->name('users.list.urls');
 
 Route::delete('/admin/dashboard/user/{id}', [AdminController::class, 'destroyUser'])->name('user.destroy');
 Route::get('/admin/dashboard/user/{id}/edit', [AdminController::class, 'editUser'])->name('user.edit');
@@ -25,7 +26,7 @@ Route::put('/admin/dashboard/user/{id}', [AdminController::class], 'updateUser')
 Route::get('/admin/dashboard/user/{id}', [AdminController::class, 'showUser'])->name('user.show');
 Route::get('/admin/dashboard/users', [AdminController::class, 'indexUsers'])->name('users.index');
 
-Route::delete('/admin/dashboard/user/{id}', [AdminController::class, 'destroyUrl'])->name('url.destroy');
+Route::delete('/admin/dashboard/url/{id}', [AdminController::class, 'destroyUrl'])->name('url.destroy');
 Route::get('/admin/dashboard/url/{id}/edit', [AdminController::class, 'editUrl'])->name('url.edit');
 Route::put('/admin/dashboard/url/{id}', [AdminController::class], 'updateUrl')->name('url.update');
 Route::get('/admin/dashboard/url/{id}', [AdminController::class, 'showUrl'])->name('url.show');
