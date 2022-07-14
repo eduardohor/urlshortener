@@ -22,7 +22,7 @@
                 <a href="{{route('user.edit.urls', $url->id)}}" class="btn btn-warning text-white">Editar</a>
             </td>
             <td>
-                <form action="" method="POST">
+                <form action="{{route('user.destroy.url', $url->id)}}" method="POST">
                     @method('DELETE')
                     @csrf
                     <button type="submit" class="btn btn-danger text-white">Excluir</button>

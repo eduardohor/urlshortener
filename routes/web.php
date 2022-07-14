@@ -14,13 +14,13 @@ Route::get('/shorten/create', [UrlController::class, 'create'])->name('shorten.c
 Route::get('/shorten', [UrlController::class, 'shorten'])->name('shorten.index');
 Route::post('/shorten', [UrlController::class, 'shortening'])->name('shorten.shorten');
 
+Route::delete('/user/url/{id}', [UserController::class, 'destroyUrl'])->name('user.destroy.url');
 Route::put('/user/url/{id}/', [UserController::class, 'updateUrl'])->name('user.update.url');
 Route::get('/user/url/{id}/edit', [UserController::class, 'editUrl'])->name('user.edit.urls');
 Route::post('/user', [UserController::class, 'store'])->name('user.store');
 Route::get('/user/create', [UserController::class, 'create'])->name('users.create');
 Route::get('/user/url/{id}', [UserController::class, 'showUrl'])->name('user.show.urls');
 Route::get('/user/urls', [UserController::class, 'listUrls'])->name('users.list.urls');
-
 
 Route::delete('/admin/dashboard/user/{id}', [AdminController::class, 'destroyUser'])->name('user.destroy');
 Route::get('/admin/dashboard/user/{id}/edit', [AdminController::class, 'editUser'])->name('user.edit');

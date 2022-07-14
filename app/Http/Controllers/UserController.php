@@ -63,4 +63,14 @@ class UserController extends Controller
 
         return redirect()->route('users.list.urls');
     }
+
+    public function destroyUrl($id)
+    {
+        if (!$url = Url::find($id))
+            return redirect()->route('users.list.urls');
+
+        $url->delete();
+
+        return redirect()->route('users.list.urls');
+    }
 }
