@@ -44,6 +44,9 @@ class AdminController extends Controller
 
         $data = $request->all();
 
+        if ($request->password)
+            $data['password'] = bcrypt($request->password);
+
         $user->update($data);
 
         return redirect()->route('users.index');
