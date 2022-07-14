@@ -9,6 +9,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/shorten/store', [UserController::class, 'store'])->name('shorten.store');
+Route::get('/shorten/create', [UrlController::class, 'create'])->name('shorten.create');
 Route::get('/shorten', [UrlController::class, 'shorten'])->name('shorten.index');
 Route::post('/shorten', [UrlController::class, 'shortening'])->name('shorten.shorten');
 Route::post('/shorte/create', [UrlController::class, 'store'])->name('shorten.store');

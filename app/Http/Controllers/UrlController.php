@@ -19,6 +19,7 @@ class UrlController extends Controller
 
     public function index()
     {
+
         return view('shorten.index');
     }
 
