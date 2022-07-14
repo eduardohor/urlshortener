@@ -24,9 +24,9 @@
                     <tr>
                         <th scope="row">{{$url->id}}</th>
                         <td>{{$url->user->name}}</td>
-                        <td>{{$url->name}}</td>
+                        <td>{{$url->title}}</td>
                         <td>{{$url->normal_url}}</td>
-                        <td>{{$url->shortened}}</td>
+                        <td>{{$url->shortened_url}}</td>
                         <td>{{date('d/m/Y', strtotime($url->created_at))}}</td>
                         <td>
                             <a href="{{route('url.edit', $url->id)}}" class="btn btn-warning text-white">Editar</a>

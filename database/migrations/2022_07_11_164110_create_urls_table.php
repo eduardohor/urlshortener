@@ -19,8 +19,9 @@ return new class extends Migration
                 ->constrained('users')
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
+            $table->string('title');
             $table->string('normal_url');
-            $table->string('shortened _url');
+            $table->string('shortened_url');
             $table->timestamps();
         });
     }

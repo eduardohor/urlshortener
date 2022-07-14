@@ -43,11 +43,9 @@
             </div>
         </section>
         <div>
-            <form action="{{route('shorten.index')}}" class="row g-3 mt-3">
-                <div class="col-auto ">
-                  <button type="submit" class="btn btn-info mb-3 btn-lg"> Ir para o encurtador de link</button>
-                </div>
-              </form>
+            <div class="col-auto ">
+              <a href="{{route('shorten.index')}}" type="submit" class="btn btn-info mb-3 btn-lg"> Ir para o encurtador de link</a>
+            </div>
         </div>
     </header>
    
