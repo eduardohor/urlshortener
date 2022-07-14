@@ -35,4 +35,32 @@ class UserController extends Controller
 
         return view('users.urls-index', compact('urls'));
     }
+
+    public function showUrl($id)
+    {
+        if (!$url = Url::find($id))
+            return redirect()->route('users.list.urls');
+
+        return view('users.url-show', compact('url'));
+    }
+
+    public function editUrl($id)
+    {
+        if (!$url = Url::find($id))
+            return redirect()->route('users.list.urls');
+
+        return view('users.url-edit', compact('url'));
+    }
+
+    public function updateUrl(Request $request, $id)
+    {
+        if (!$url = Url::find($id))
+            return redirect()->route('users.list.urls');
+
+        $data = $request->all();
+
+        $url->update($data);
+
+        return redirect()->route('users.list.urls');
+    }
 }

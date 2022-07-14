@@ -19,7 +19,7 @@
                 <td>{{$url->normal_url}}</td>
                 <td>{{$url->shortened_url}}</td>
                 <td>{{date('d/m/Y', strtotime($url->created_at))}}</td>
-                <td><a href="" class="btn btn-info text-white">Visualizar</a></td>
+                <td><a href="{{route('user.show.urls', $url->id)}}" class="btn btn-info text-white">Visualizar</a></td>
             </tr>
           @endforeach
            
