@@ -8,7 +8,7 @@
                 <th scope="col">Url normal</th>
                 <th scope="col">Url encurtada</th>
                 <th scope="col">Data de criação</th>
-                <th scope="col">Ações</th>
+                <th scope="col" >Ações</th>
             </tr>
         </thead>
         <tbody class="text-center">

@@ -11,7 +11,12 @@
                     @method('PUT')
                     @csrf
                     <div>
-                        <input type="text" id="name" name="name" placeholder='Nome completo' class='form-control mb-3' required value="{{$url->name}}">           
+                        <label class='form-label'>Título da Url</label>
+                            <input type="text" id="title" name="title" placeholder='Nome da Url' class='form-control mb-3' value="{{$url->title}}" required>
+                        <label class='form-label'>Url normal</label>
+                            <input type="text" id="normal_url" name="normal_url" class='form-control mb-3' required value="{{$url->normal_url}}"> 
+                        <label class='form-label'>Url encurtada</label>    
+                            <input type="text" id="shortened_url" name="shortened_url" class='form-control mb-3' required value="{{$url->shortened_url}}">          
                     </div>
                     <button type='submit' class='btn btn-info d-block w-100'>Atualizar</button>
                 </form>          
