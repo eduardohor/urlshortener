@@ -7,7 +7,7 @@
                 <a href="{{route('users.index')}}" class="btn btn-info text-white mb-3">
                     Voltar
                 </a>
-                <form action="{{route('user.update', $user->id)}}" method="POST"  class='rounded shadow p-3 p-md-4 text-start' style='background-color:#fff;'>
+                <form action="{{route('user.update', $user->id)}}" method="POST"  class='rounded shadow p-3 p-md-4 text-start' style='background-color:#fff;' enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div>
@@ -18,6 +18,8 @@
                         <input type="tel" id="tel" name="telephone" placeholder='Telefone' class='form-control mb-3' required value="{{$user->telephone}}">
                         <input type="date" id="birth_date" name="birth_date" placeholder='Data de nascimento' class='form-control mb-3' required value="{{$user->birth_date}}">
                         <input type="text" id="cpf" name="cpf" placeholder='CPF' class='form-control mb-3' required value="{{$user->cpf}}">
+                        <label for="photo" class="form-label">Selecione uma foto para o seu perfil.</label>
+                        <input type="file" id="photo" name="photo" class="form-control form control-md mb-3">
                        
                     </div>
                     <div>

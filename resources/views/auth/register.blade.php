@@ -36,7 +36,7 @@
         @endif
 
 
-        <form action="{{ route('register') }}" method="POST"  class='rounded shadow p-3 p-md-5 text-start' style='background-color:#fff;'>
+        <form action="{{ route('register') }}" method="POST"  class='rounded shadow p-3 p-md-5 text-start' style='background-color:#fff;' enctype="multipart/form-data">
             @csrf
             <div>
                 <label class='form-label text-info h3'>Dados básicos</label>
@@ -47,7 +47,8 @@
                 <input type="tel" id="telephone" name="telephone" placeholder='Telefone' class='form-control mb-3' required>
                 <input type="date" id="birth_date" name="birth_date" placeholder='Data de nascimento' class='form-control mb-3' required>
                 <input type="text" id="cpf" name="cpf" placeholder='CPF' class='form-control mb-3' required>
-               
+                <label for="photo" class="form-label">Selecione uma foto para o seu perfil.</label>
+                <input type="file" id="photo" name="photo" class="form-control form control-md mb-3">         
             </div>
             <div>
                 <label class='form-label text-info h3'>Endereço</label>

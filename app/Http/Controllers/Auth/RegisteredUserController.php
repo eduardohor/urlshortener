@@ -33,6 +33,10 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+
+        $file = $request['photo'];
+        $path = $file->store('profile', 'public');
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -40,6 +44,7 @@ class RegisteredUserController extends Controller
             'telephone' => ['required'],
             'birth_date' => ['required'],
             'cpf' => ['required', 'max:12'],
+            'photo' => ['file'],
             'street' => ['required'],
             'number' => ['required'],
             'neighborhood' => ['required'],
@@ -55,6 +60,7 @@ class RegisteredUserController extends Controller
             'telephone' => $request->telephone,
             'birth_date' => $request->birth_date,
             'cpf' => $request->cpf,
+            'photo' =>  $path,
             'street' => $request->street,
             'number' => $request->number,
             'neighborhood' => $request->neighborhood,
@@ -62,6 +68,9 @@ class RegisteredUserController extends Controller
             'state' => $request->state,
             'cep' => $request->cep,
         ]);
+
+
+
 
         event(new Registered($user));
 

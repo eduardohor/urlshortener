@@ -46,6 +46,8 @@
                 <input type="tel" id="tel" name="telephone" placeholder='Telefone' class='form-control mb-3' required>
                 <input type="date" id="birth_date" name="birth_date" placeholder='Data de nascimento' class='form-control mb-3' required>
                 <input type="text" id="cpf" name="cpf" placeholder='CPF' class='form-control mb-3' required>
+                <label for="photo" class="form-label">Selecione uma foto para o seu perfil.</label>
+                <input type="file" id="photo" name="photo" class="form-control form control-md">
                
             </div>
             <div>
