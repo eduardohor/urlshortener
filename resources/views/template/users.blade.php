@@ -27,6 +27,9 @@
                     <a href="" class="nav-link">{{Auth::user()->name}}</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="{{route('shorten.index')}}">Encurtar Url</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="{{route('users.list.urls')}}">Minhas Url's</a>
                   </li>
                   <li>

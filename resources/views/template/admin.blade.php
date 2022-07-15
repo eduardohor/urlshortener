@@ -25,7 +25,10 @@
                     <a href="" class="nav-link">{{Auth::user()->name}}</a>
                   </li>
                   <li>
-                    <a href="" class="btn btn-info text-white">Sair</a>
+                    <form action="{{route('logout')}}" method="POST">
+                      @csrf
+                      <button class="btn btn-info">Sair</button>
+                    </form>
                   </li>
               </ul>
             </div>
