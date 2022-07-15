@@ -16,7 +16,7 @@ class AdminController extends Controller
 
     public function indexUsers()
     {
-        $users = User::all();
+        $users = User::paginate(5);
 
         return view('admin.index-users', compact('users'));
     }
@@ -47,6 +47,7 @@ class AdminController extends Controller
         if ($request->password)
             $data['password'] = bcrypt($request->password);
 
+
         $user->update($data);
 
         return redirect()->route('users.index');
@@ -64,7 +65,7 @@ class AdminController extends Controller
 
     public function indexUrls()
     {
-        $urls = Url::all();
+        $urls = Url::paginate(5);
 
         return view('admin.index-urls', compact('urls'));
     }

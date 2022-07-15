@@ -33,7 +33,7 @@ class UserController extends Controller
     public function listUrls()
     {
         $userId = Auth::user()->id;
-        $urls = Url::where('user_id', $userId)->get();
+        $urls = Url::where('user_id', $userId)->paginate(5);
 
         return view('users.urls-index', compact('urls'));
     }

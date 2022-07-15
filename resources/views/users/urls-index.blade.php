@@ -25,4 +25,5 @@
            
         </tbody>
         </table>
+        {{$urls->links('pagination::bootstrap-5')}}
 @endsection
