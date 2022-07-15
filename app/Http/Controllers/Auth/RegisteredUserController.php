@@ -34,8 +34,12 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
 
-        $file = $request['photo'];
-        $path = $file->store('profile', 'public');
+        if ($request->photo) {
+            $file = $request['photo'];
+            $path = $file->store('profile', 'public');
+        } else {
+            $path = $request['photo'];
+        }
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],

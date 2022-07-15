@@ -19,7 +19,7 @@
                         <input type="date" id="birth_date" name="birth_date" placeholder='Data de nascimento' class='form-control mb-3' required value="{{$user->birth_date}}">
                         <input type="text" id="cpf" name="cpf" placeholder='CPF' class='form-control mb-3' required value="{{$user->cpf}}">
                         <label for="photo" class="form-label">Selecione uma foto para o seu perfil.</label>
-                        <input type="file" id="photo" name="photo" class="form-control form control-md mb-3">
+                        <input type="file" id="photo" name="photo" class="form-control form control-md mb-3" value="{{$user->photo}}">
                        
                     </div>
                     <div>

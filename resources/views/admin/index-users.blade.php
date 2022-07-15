@@ -18,6 +18,7 @@
             <table class="table table-striped ">
                 <thead class="text-center">
                     <tr>
+                        <th scope="col">Fo</th>
                         <th scope="col">ID</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Email</th>
@@ -30,7 +31,12 @@
                 </thead>
                 <tbody class="text-center">
                     @foreach($users as $user)
-                    <tr>
+                        <tr>
+                        @if($user->photo)
+                            <th><img src="{{ asset('storage/'.$user->photo) }}" width="60px" height="60px" class="border rounded-circle"></th>
+                        @else    
+                            <th><img src="{{ asset('storage/profile/avatar.png') }}" width="60px" height="60px" class="border rounded-circle"></th>
+                        @endif
                         <th scope="row">{{$user->id}}</th>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
