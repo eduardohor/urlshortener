@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Models\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -15,12 +16,6 @@ class UrlController extends Controller
     public function shorten()
     {
         return view('shorten.shorten');
-    }
-
-    public function index()
-    {
-
-        return view('shorten.index');
     }
 
     public function shortening(Request $request)
@@ -39,6 +34,7 @@ class UrlController extends Controller
         $data = $request->all();
 
         $this->model->create($data);
+
 
         return redirect()->route('shorten.shorten');
     }

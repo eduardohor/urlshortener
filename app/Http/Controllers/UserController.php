@@ -6,6 +6,7 @@ use App\Http\Requests\StoreUpdateUserFormRequest;
 use App\Models\Url;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -29,8 +30,9 @@ class UserController extends Controller
         return redirect()->route('shorten.index');
     }
 
-    public function listUrls($userId = 1)
+    public function listUrls()
     {
+        $userId = Auth::user()->id;
         $urls = Url::where('user_id', $userId)->get();
 
         return view('users.urls-index', compact('urls'));

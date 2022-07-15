@@ -22,7 +22,7 @@
               </ul>
               <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a href="" class="nav-link">Nome do usuário</a>
+                    <a href="" class="nav-link">{{Auth::user()->name}}</a>
                   </li>
                   <li>
                     <a href="" class="btn btn-info text-white">Sair</a>

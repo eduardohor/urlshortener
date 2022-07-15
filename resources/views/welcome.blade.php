@@ -22,12 +22,24 @@
                   
               </ul>
               <ul class="navbar-nav ">
+                @if(Auth::user())
                   <li class="nav-item">
-                    <a href="" class="nav-link me-3 " style="font-size: 18px">Entrar</a>
+                    <a href="" class="nav-link me-3 " style="font-size: 18px">{{Auth::user()->name}}</a>
                   </li>
                   <li>
-                    <a href="{{route('users.create')}}" class="btn btn-info" style="font-size: 18px">Cadastrar</a>
+                    <form action="{{route('logout')}}" method="POST">
+                      @csrf
+                      <button class="btn btn-info" style="font-size: 18px">Sair</button>
+                    </form>
                   </li>
+                @else
+                  <li class="nav-item">
+                    <a href="{{route('login')}}" class="nav-link me-3 " style="font-size: 18px">Entrar</a>
+                  </li>
+                  <li>
+                    <a href="{{route('register')}}" class="btn btn-info" style="font-size: 18px">Cadastrar</a>
+                  </li>
+                  @endif
               </ul>
             </div>
           </div>

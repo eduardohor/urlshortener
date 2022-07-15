@@ -22,15 +22,21 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               </ul>
               <ul class="navbar-nav">
+                @if(Auth::user())
                   <li class="nav-item">
-                    <a href="" class="nav-link">Nome do usuário</a>
+                    <a href="" class="nav-link">{{Auth::user()->name}}</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{route('users.list.urls')}}">Minhas Url's</a>
                   </li>
                   <li>
-                    <a href="" class="btn btn-info">Sair</a>
+                    <form action="{{route('logout')}}" method="POST">
+                      @csrf
+                      <button class="btn btn-info">Sair</button>
+                    </form>
                   </li>
+                @endif
+                  
               </ul>
             </div>
           </div>

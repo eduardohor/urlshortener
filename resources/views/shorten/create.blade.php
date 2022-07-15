@@ -6,7 +6,7 @@
         <div>
             <label class='form-label text-info h3 d-block mb-3'>Salvar sua Url</label>
             <label class='form-label'>Id do Usuário(campo temporário)</label>
-                <input type="number" id="user_id" name="user_id" placeholder='Id do usuário' class='form-control mb-3' required>
+                <input type="hidden" id="user_id" name="user_id" placeholder='Id do usuário' class='form-control mb-3' required value="{{Auth::user()->id}}">
             <label class='form-label'>Nome da Url</label>
                 <input type="text" id="title" name="title" placeholder='Nome da Url' class='form-control mb-3' required>
             <label class='form-label'>Url normal</label>
