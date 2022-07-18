@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function __construct(User $user)
+    public function __construct(User $user, Url $url)
     {
         $this->model = $user;
+        $this->url = $url;
     }
 
     public function create()
@@ -30,10 +31,12 @@ class UserController extends Controller
         return redirect()->route('shorten.index');
     }
 
-    public function listUrls()
+    public function listUrls(Request $request)
     {
-        $userId = Auth::user()->id;
-        $urls = Url::where('user_id', $userId)->paginate(5);
+
+        $urls = $this->url->getUrlsUser(
+            $request->search ?? ''
+        );
 
         return view('users.urls-index', compact('urls'));
     }

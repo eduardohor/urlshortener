@@ -1,6 +1,20 @@
 @extends('template.users')
 @section('body')
-     <table class="table table-striped mt-5">
+
+      <h1 class="text-info mt-4">Minhas Url's</h1>
+
+      <form action="{{ route('users.list.urls') }}" method="get" class='d-flex'>
+        @csrf
+        <div class='form-group w-50 me-3'>
+            <input type="search" id="form1" name='search' class="form-control rounded "
+                placeholder='Pesquisar' />
+        </div>
+        <button type="submit" class="btn btn-info text-white">
+            Buscar<i class="fas fa-search"></i>
+        </button>
+      </form>
+
+     <table class="table table-striped mt-2">
         <thead class="text-center">
             <tr>
                 <th scope="col">ID</th>

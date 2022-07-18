@@ -18,7 +18,7 @@
             <table class="table table-striped ">
                 <thead class="text-center">
                     <tr>
-                        <th scope="col">Fo</th>
+                        <th scope="col">Foto</th>
                         <th scope="col">ID</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Email</th>

@@ -9,14 +9,18 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function __construct(User $user)
+    public function __construct(User $user, Url $url)
     {
         $this->model = $user;
+        $this->url = $url;
     }
 
-    public function indexUsers()
+    public function indexUsers(Request $request)
     {
-        $users = User::paginate(5);
+
+        $users = $this->model->getUsers(
+            $request->search ?? ''
+        );
 
         return view('admin.index-users', compact('users'));
     }
@@ -63,9 +67,12 @@ class AdminController extends Controller
         return redirect()->route('users.index');
     }
 
-    public function indexUrls()
+    public function indexUrls(Request $request)
     {
-        $urls = Url::paginate(5);
+
+        $urls = $this->url->getUrlsAdmin(
+            $request->search ?? ''
+        );
 
         return view('admin.index-urls', compact('urls'));
     }
