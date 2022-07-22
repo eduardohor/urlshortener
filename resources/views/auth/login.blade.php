@@ -27,7 +27,14 @@
                 <h1 class="text-info h1 my-5">Entrar</h1>
             </div>
 
-           
+            @if($errors->any())
+            <div class="alert alert-danger" role="alert">
+                @foreach($errors->all() as $error )
+                        {{$error}}<br>
+                @endforeach
+            </div>
+            @endif
+            
         </div>
             <form action="{{ route('login') }}" class="rounded shadow p-3" method="POST">
                 @csrf

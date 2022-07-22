@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     
     
     <title>Encurtador de Url</title>
@@ -24,7 +25,7 @@
               <ul class="navbar-nav">
                 @if(Auth::user())
                   <li class="nav-item">
-                    <a href="" class="nav-link">{{Auth::user()->name}}</a>
+                    <a href="" class="nav-link">Olá, {{Auth::user()->name}}</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{route('shorten.index')}}">Encurtar Url</a>

@@ -62,7 +62,7 @@ class UserController extends Controller
         if (!$url = Url::find($id))
             return redirect()->route('users.list.urls');
 
-        $data = $request->all();
+        $data = $request->only('title');
 
         $url->update($data);
 

@@ -7,9 +7,19 @@
                 <a href="{{route('users.index')}}" class="btn btn-info text-white mb-3">
                     Voltar
                 </a>
+
+               
+
                 <form action="{{route('user.update', $user->id)}}" method="POST"  class='rounded shadow p-3 p-md-4 text-start' style='background-color:#fff;' enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
+                    @if($errors->any())
+                    <div class="alert alert-danger" role="alert">
+                        @foreach($errors->all() as $error )
+                                {{$error}}<br>
+                        @endforeach
+                    </div>
+                    @endif
                     <div>
                         <label class='form-label text-info h3'>Dados básicos</label>
                         <input type="text" id="name" name="name" placeholder='Nome completo' class='form-control mb-3' required value="{{$user->name}}">

@@ -22,7 +22,7 @@
               </ul>
               <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a href="" class="nav-link">{{Auth::user()->name}}</a>
+                    <a href="" class="nav-link">Olá, {{Auth::user()->name}}</a>
                   </li>
                   <li>
                     <form action="{{route('logout')}}" method="POST">

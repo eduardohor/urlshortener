@@ -36,20 +36,11 @@ class StoreUpdateUserFormRequest extends FormRequest
                 'min:4',
                 'max:12'
             ],
-            'image' => [
+            'photo' => [
                 'file',
                 'mines:jpeg, png'
             ],
         ];
-
-        if ($this->method('PUT')) {
-            $rules['password'] = [
-                'nullable',
-                'min:5',
-                'max:12'
-            ];
-        }
-
         return $rules;
     }
 }

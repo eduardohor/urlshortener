@@ -38,18 +38,25 @@ class AdminController extends Controller
         if (!$user = $this->model->find($id))
             return redirect()->route('users.index');
 
+
         return view('admin.edit-user', compact('user'));
     }
 
-    public function updateUser(Request $request, $id)
+    public function updateUser(StoreUpdateUserFormRequest $request, $id)
     {
         if (!$user = $this->model->find($id))
             return redirect()->route('users.index');
 
         $data = $request->all();
 
-        if ($request->password)
+        if ($request->password) {
             $data['password'] = bcrypt($request->password);
+        }
+
+        if ($request->photo) {
+            $file = $data['photo'];
+            $data['photo'] = $file->store('profile', 'public');
+        }
 
 
         $user->update($data);
@@ -98,7 +105,7 @@ class AdminController extends Controller
         if (!$url = Url::find($id))
             return redirect()->route('urls.index');
 
-        $data = $request->all();
+        $data = $request->only('title');
 
         $url->update($data);
 

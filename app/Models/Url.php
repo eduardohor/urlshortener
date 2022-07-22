@@ -22,7 +22,7 @@ class Url extends Model
         $urls = $this->where(function ($query) use ($search) {
             $query->where('normal_url', $search);
             $query->orWhere('title', 'LIKE', "%{$search}%");
-        })->paginate(5);
+        })->orderBy('id', 'desc')->paginate(5);
 
         return $urls;
     }
@@ -35,7 +35,7 @@ class Url extends Model
             $query->where('normal_url', $search);
             $query->orWhere('title', 'LIKE', "%{$search}%");
             $query->where('user_id', $userId);
-        })->paginate(5);
+        })->orderBy('id', 'desc')->paginate(5);
 
         return $urls;
     }
