@@ -2,7 +2,13 @@
 @section('body')
 
       <h1 class="text-info mt-4">Minhas Url's</h1>
-
+      
+      @if(session()->has('destroy'))
+        <div class="alert alert-danger alert-dismissible fade show w-75" role="alert">
+            <strong>Sucesso!</strong> {{session()->get('destroy')}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      @endif
       <form action="{{ route('users.list.urls') }}" method="get" class='d-flex'>
         @csrf
         <div class='form-group w-50 me-3'>
@@ -10,7 +16,7 @@
                 placeholder='Pesquisar' />
         </div>
         <button type="submit" class="btn btn-info text-white">
-            Buscar<i class="fas fa-search"></i>
+            Buscar <i class="fas fa-search"></i>
         </button>
       </form>
 

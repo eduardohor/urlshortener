@@ -42,12 +42,6 @@
                 <input type="password" placeholder="Senha" class="form-control mb-3" name="password" required>
                 <button type='submit' class='btn btn-info d-block w-100'> {{ __('Log in') }}</button>
                   <div class="d-flex justify-content-between pt-2">
-                    @if (Route::has('password.request'))
-                        <a class="nav-link text-info p-0" href="{{ route('password.request') }}">
-                            {{ __('Forgot your password?') }}
-                        </a>
-                    @endif
-
                     <a href="/register" class='nav-link text-info p-0'>Cadastre-se!</a>
                  </div> 
             </form>

@@ -61,7 +61,7 @@ class AdminController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('users.index');
+        return redirect()->route('user.show', compact('id'))->with('edit', 'Usuário editado com sucesso!');
     }
 
     public function destroyUser($id)
@@ -71,7 +71,7 @@ class AdminController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('destroy', 'Usuário deletado com sucesso!');
     }
 
     public function indexUrls(Request $request)
@@ -109,7 +109,7 @@ class AdminController extends Controller
 
         $url->update($data);
 
-        return redirect()->route('urls.index');
+        return redirect()->route('url.show', compact('id'))->with('edit', 'Url editada com sucesso!');
     }
 
     public function destroyUrl($id)
@@ -119,6 +119,6 @@ class AdminController extends Controller
 
         $url->delete();
 
-        return redirect()->route('urls.index');
+        return redirect()->route('urls.index')->with('destroy', 'Url deletada com sucesso!');
     }
 }

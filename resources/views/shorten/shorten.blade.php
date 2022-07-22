@@ -12,11 +12,18 @@
 </section>
 </header>
     <main class="bg-light mt-4">
-        <div class="container d-flex justify-content-center bg-secondary w-75">
+        @if(session()->has('create'))
+            <div class="container alert alert-success alert-dismissible fade show w-75" role="alert">
+                <strong>Sucesso!</strong> {{session()->get('create')}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+        <div class="container d-flex justify-content-center bg-secondary w-75 mb-5">      
             <form action="{{route('shorten.shorten')}}" method="POST" class="row g-3 m-3">
                 @csrf
                 <div class="col-auto">
-                <input type="text" name="url" id="url" class="form-control" size="80" placeholder="Coloque seu link aqui...">
+                <input type="text" name="url" id="url" class="form-control" size="80" placeholder="Coloque seu link aqui..." required>
                 </div>
                 <div class="col-auto">
                 <button type="submit" class="btn btn-info mb-3">Encurtar link</button>

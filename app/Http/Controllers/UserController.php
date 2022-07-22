@@ -66,7 +66,7 @@ class UserController extends Controller
 
         $url->update($data);
 
-        return redirect()->route('users.list.urls');
+        return redirect()->route('user.show.urls', compact('id'))->with('edit', 'Url editada com sucesso!');
     }
 
     public function destroyUrl($id)
@@ -76,6 +76,6 @@ class UserController extends Controller
 
         $url->delete();
 
-        return redirect()->route('users.list.urls');
+        return redirect()->route('users.list.urls')->with('destroy', 'Url deletada com sucesso!');
     }
 }

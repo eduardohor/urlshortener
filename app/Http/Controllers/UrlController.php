@@ -36,6 +36,6 @@ class UrlController extends Controller
         $this->model->create($data);
 
 
-        return redirect()->route('shorten.shorten');
+        return redirect()->route('shorten.shorten')->with('create', 'Url salva com sucesso!');
     }
 }

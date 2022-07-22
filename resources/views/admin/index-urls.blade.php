@@ -4,6 +4,12 @@
         <div>
             <div class='mx-3'>
                 <h1 class="text-info mt-4">Listagem de Urls</h1>
+                @if(session()->has('destroy'))
+                    <div class="alert alert-danger alert-dismissible fade show w-75" role="alert">
+                        <strong>Sucesso!</strong> {{session()->get('destroy')}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
             
                 <form action="{{ route('urls.index') }}" method="get" class='d-flex'>
                         @csrf

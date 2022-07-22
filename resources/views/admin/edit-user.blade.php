@@ -4,11 +4,9 @@
     <div>
         <div class='mx-3'>
             <h1 class="text-info mt-4">Editar {{$user->name}}</h1>
-                <a href="{{route('users.index')}}" class="btn btn-info text-white mb-3">
+                <a href="{{route('user.show', $user->id)}}" class="btn btn-info text-white mb-3">
                     Voltar
                 </a>
-
-               
 
                 <form action="{{route('user.update', $user->id)}}" method="POST"  class='rounded shadow p-3 p-md-4 text-start' style='background-color:#fff;' enctype="multipart/form-data">
                     @method('PUT')
@@ -40,6 +38,10 @@
                         <input type="text" id="neighborhood" name="neighborhood" placeholder='Bairro' class='form-control mb-3' required value="{{$user->neighborhood}}">
                         <input type="text" id="city" name="city" placeholder='Cidade' class='form-control mb-3' required value="{{$user->city}}">
                         <input type="text" id="state" name="state" placeholder='Estado' class='form-control mb-3' required value="{{$user->state}}">
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Admininstrador</label>
+                          </div>
                     </div>
                     <button type='submit' class='btn btn-info d-block w-100'>Atualizar</button>
                 </form>          

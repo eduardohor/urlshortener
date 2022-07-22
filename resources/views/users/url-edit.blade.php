@@ -1,5 +1,12 @@
 @extends('template.users')
 @section('body')
+
+    <h1 class="text-info mt-4">Editar Url {{$url->title}}</h1>
+
+    <a href="{{route('user.show.urls', $url->id)}}" class="btn btn-info text-white mb-3">
+        Voltar
+    </a>
+
     <form action="{{route('user.update.url', $url->id)}}" method="POST"  class='rounded shadow p-3 p-md-5 text-start' style='background-color:#fff;'>
         @method('put')
         @csrf

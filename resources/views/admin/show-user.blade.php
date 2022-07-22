@@ -1,12 +1,20 @@
 @extends('template.admin')
 @section('body')
 <div class='shadow-sm p-3 rounded w-100'>
+
+   
     <div>
         <div class='mx-3'>
             <h1 class="text-info mt-4">{{$user->name}}</h1>
                 <a href="{{route('users.index')}}" class="btn btn-info text-white">
                     Voltar<i class="fas fa-search"></i>
                 </a>
+                @if(session()->has('edit'))
+                    <div class="alert alert-success alert-dismissible fade show w-75 mt-4" role="alert">
+                        <strong>Sucesso!</strong> {{session()->get('edit')}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                 @endif
            
             <table class="table table-striped ">
                 <thead class="text-center">
