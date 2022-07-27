@@ -19,10 +19,19 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'is_admin' => 1,
             'email' => fake()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'password' => '12345678',
+            'remember_token' => '12345678',
+            'telephone' => fake()->numerify('(##)#####-####'),
+            'birth_date' => fake()->date($format = 'Y-m-d', $max = 'now'),
+            'cpf' => fake()->numerify('#########-##'),
+            'cep' => '65400000',
+            'street' => 'Rua Test',
+            'number' => '2010',
+            'neighborhood' => 'Testando',
+            'city' => 'Codo',
+            'state' => 'MA',
         ];
     }
 
