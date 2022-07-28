@@ -24,7 +24,10 @@
               <ul class="navbar-nav ">
                 @if(Auth::user())
                   <li class="nav-item">
-                    <a href="" class="nav-link me-3 " style="font-size: 18px">{{Auth::user()->name}}</a>
+                    <a href="" class="nav-link" style="font-size: 18px">{{Auth::user()->name}}</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="font-size: 18px" href="{{route('index.urls')}}">Minhas Url's</a>
                   </li>
                   <li>
                     <form action="{{route('logout')}}" method="POST">

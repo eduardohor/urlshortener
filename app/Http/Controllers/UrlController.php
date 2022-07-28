@@ -13,6 +13,22 @@ class UrlController extends Controller
         $this->model = $url;
     }
 
+    public function create(Request $request)
+    {
+        $data = $request->all();
+
+        return view('urls.create', $data);
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $this->model->create($data);
+
+        return redirect()->route('shorten.index')->with('create', 'Url salva com sucesso!');
+    }
+
     public function index(Request $request)
     {
 
@@ -107,21 +123,5 @@ class UrlController extends Controller
         $url->delete();
 
         return redirect()->route('urls.index.admin')->with('destroy', 'Url deletada com sucesso!');
-    }
-
-    public function create(Request $request)
-    {
-        $data = $request->all();
-
-        return view('urls.create', $data);
-    }
-
-    public function store(Request $request)
-    {
-        $data = $request->all();
-
-        $this->model->create($data);
-
-        return redirect()->route('shorten.index')->with('create', 'Url salva com sucesso!');
     }
 }

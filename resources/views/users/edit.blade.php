@@ -38,9 +38,26 @@
                         <input type="text" id="neighborhood" name="neighborhood" placeholder='Bairro' class='form-control mb-3' required value="{{$user->neighborhood}}">
                         <input type="text" id="city" name="city" placeholder='Cidade' class='form-control mb-3' required value="{{$user->city}}">
                         <input type="text" id="state" name="state" placeholder='Estado' class='form-control mb-3' required value="{{$user->state}}">
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault">Admininstrador</label>
+                        <label>Administrador</label>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input"  type="radio" name="is_admin" value="1" id="flexRadioDefault1"
+                            @if($user->is_admin == '1')
+                            checked
+                           @endif
+                            >
+                            <label class="form-check-label" for="flexRadioDefault1">
+                             Sim
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="is_admin" value="0" id="flexRadioDefault2" 
+                                @if($user->is_admin == '0')
+                                 checked
+                                @endif
+                            >
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Não
+                            </label>
                           </div>
                     </div>
                     <button type='submit' class='btn btn-info d-block w-100'>Atualizar</button>

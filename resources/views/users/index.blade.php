@@ -30,7 +30,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Telefone</th>
                         <th scope="col">Data de Nascimento</th>
-                        <th scope="col">CPF</th>
+                        <th scope="col">Administrador</th>
                         <th scope="col">Data de Cadastro</th>
                         <th scope="col">Ações</th>
                     </tr>
@@ -48,7 +48,14 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->telephone}}</td>
                         <td>{{$user->birth_date}}</td>
-                        <td>{{$user->cpf}}</td>
+                        <td>
+                            @if($user->is_admin == '1')
+                                <b>SIM</b>
+                                @else
+                                    NÃO
+                             @endif
+                                
+                        </td>
                         <td>{{date('d/m/Y', strtotime($user->created_at))}}</td>
                         <td><a href="{{route('user.show', $user->id)}}" class="btn btn-info text-white">Visualizar</a></td>
                     </tr>
