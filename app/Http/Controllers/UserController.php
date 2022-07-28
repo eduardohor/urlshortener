@@ -3,22 +3,60 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdateUserFormRequest;
-use App\Models\Url;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function __construct(User $user, Url $url)
+    public function __construct(User $user)
     {
         $this->model = $user;
-        $this->url = $url;
     }
 
-    public function create()
+    public function index(Request $request)
     {
-        return view('users.create');
+        $users = $this->model->getUsers(
+            $request->search ?? ''
+        );
+
+        return view('users.index', compact('users'));
+    }
+
+    public function show($id)
+    {
+        if (!$user =  $this->model->find($id))
+            return redirect()->route('users.index');
+
+        return view('users.show', compact('user'));
+    }
+
+    public function edit($id)
+    {
+        if (!$user = $this->model->find($id))
+            return redirect()->route('users.index');
+
+        return view('users.edit', compact('user'));
+    }
+
+    public function update(StoreUpdateUserFormRequest $request, $id)
+    {
+        if (!$user = $this->model->find($id))
+            return redirect()->route('users.index');
+
+        $data = $request->all();
+
+        if ($request->password) {
+            $data['password'] = bcrypt($request->password);
+        }
+
+        if ($request->photo) {
+            $file = $data['photo'];
+            $data['photo'] = $file->store('profile', 'public');
+        }
+
+        $user->update($data);
+
+        return redirect()->route('user.show', compact('id'))->with('edit', 'Usuário editado com sucesso!');
     }
 
     public function store(StoreUpdateUserFormRequest $request)
@@ -31,51 +69,13 @@ class UserController extends Controller
         return redirect()->route('shorten.index');
     }
 
-    public function listUrls(Request $request)
+    public function destroy($id)
     {
+        if (!$user = $this->model->find($id))
+            return redirect()->route('users.index');
 
-        $urls = $this->url->getUrlsUser(
-            $request->search ?? ''
-        );
+        $user->delete();
 
-        return view('users.urls-index', compact('urls'));
-    }
-
-    public function showUrl($id)
-    {
-        if (!$url = Url::find($id))
-            return redirect()->route('users.list.urls');
-
-        return view('users.url-show', compact('url'));
-    }
-
-    public function editUrl($id)
-    {
-        if (!$url = Url::find($id))
-            return redirect()->route('users.list.urls');
-
-        return view('users.url-edit', compact('url'));
-    }
-
-    public function updateUrl(Request $request, $id)
-    {
-        if (!$url = Url::find($id))
-            return redirect()->route('users.list.urls');
-
-        $data = $request->only('title');
-
-        $url->update($data);
-
-        return redirect()->route('user.show.urls', compact('id'))->with('edit', 'Url editada com sucesso!');
-    }
-
-    public function destroyUrl($id)
-    {
-        if (!$url = Url::find($id))
-            return redirect()->route('users.list.urls');
-
-        $url->delete();
-
-        return redirect()->route('users.list.urls')->with('destroy', 'Url deletada com sucesso!');
+        return redirect()->route('users.index')->with('destroy', 'Usuário deletado com sucesso!');
     }
 }

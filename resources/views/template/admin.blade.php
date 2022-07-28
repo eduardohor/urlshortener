@@ -40,19 +40,16 @@
                 <div>
                     <span class='h1 text-info'>Painel de Controle</span>
                 </div>
-            </div>
-            
-            <hr class='text-info'>
-            
+            </div>           
+            <hr class='text-info'>           
             <div class='d-flex gap-3 mt-3'>
                 <div class='d-flex flex-column w-25 shadow-sm p-3 rounded'>
                     <a href="{{route('users.index')}}" class='btn btn-outline-info mb-1'><i class="fa-solid fa-user-large"></i> Usuários</a>
-                    <a href="{{route('urls.index')}}" class='btn btn-outline-info'><i class="fa-solid fa-basket-shopping"></i> Urls</a>
+                    <a href="{{route('urls.index.admin')}}" class='btn btn-outline-info'><i class="fa-solid fa-basket-shopping"></i> Urls</a>
                 </div>
                 @yield('body')
             </div>  
         </main>
-    
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

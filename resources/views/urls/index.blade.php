@@ -9,7 +9,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       @endif
-      <form action="{{ route('users.list.urls') }}" method="get" class='d-flex'>
+      <form action="{{ route('index.urls') }}" method="get" class='d-flex'>
         @csrf
         <div class='form-group w-50 me-3'>
             <input type="search" id="form1" name='search' class="form-control rounded "
@@ -39,7 +39,7 @@
                 <td>{{$url->normal_url}}</td>
                 <td>{{$url->shortened_url}}</td>
                 <td>{{date('d/m/Y', strtotime($url->created_at))}}</td>
-                <td><a href="{{route('user.show.urls', $url->id)}}" class="btn btn-info text-white">Visualizar</a></td>
+                <td><a href="{{route('url.show', $url->id)}}" class="btn btn-info text-white">Visualizar</a></td>
             </tr>
           @endforeach
            

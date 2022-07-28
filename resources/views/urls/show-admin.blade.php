@@ -4,7 +4,7 @@
     <div>
         <div class='mx-3'>
             <h1 class="text-info mt-4">{{$url->title}}</h1>
-                <a href="{{route('urls.index')}}" class="btn btn-info text-white">
+                <a href="{{route('urls.index.admin')}}" class="btn btn-info text-white">
                     Voltar<i class="fas fa-search"></i>
                 </a>
                 @if(session()->has('edit'))
@@ -35,10 +35,10 @@
                         <td>{{$url->shortened_url}}</td>
                         <td>{{date('d/m/Y', strtotime($url->created_at))}}</td>
                         <td>
-                            <a href="{{route('url.edit', $url->id)}}" class="btn btn-warning text-white">Editar</a>
+                            <a href="{{route('url.edit.admin', $url->id)}}" class="btn btn-warning text-white">Editar</a>
                         </td>
                         <td>
-                            <form action="{{route('url.destroy', $url->id)}}" method="POST">
+                            <form action="{{route('url.destroy.admin', $url->id)}}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-danger text-white">Excluir</button>

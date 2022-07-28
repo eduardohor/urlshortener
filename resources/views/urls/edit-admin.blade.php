@@ -4,10 +4,10 @@
     <div>
         <div class='mx-3'>
             <h1 class="text-info mt-4">Editar {{$url->title}}</h1>
-                <a href="{{route('url.show', $url->id)}}" class="btn btn-info text-white mb-3">
+                <a href="{{route('url.show.admin', $url->id)}}" class="btn btn-info text-white mb-3">
                     Voltar
                 </a>
-                <form action="{{route('url.update', $url->id)}}" method="POST"  class='rounded shadow p-3 p-md-4 text-start' style='background-color:#fff;'>
+                <form action="{{route('url.update.admin', $url->id)}}" method="POST"  class='rounded shadow p-3 p-md-4 text-start' style='background-color:#fff;'>
                     @method('PUT')
                     @csrf
                     <div>

@@ -11,7 +11,7 @@
                     </div>
                 @endif
             
-                <form action="{{ route('urls.index') }}" method="get" class='d-flex'>
+                <form action="{{ route('urls.index.admin') }}" method="get" class='d-flex'>
                         @csrf
                         <div class='form-group w-50 me-3' >
                             <input type="search" id="form1" name='search' class="form-control rounded " placeholder='Pesquisar'/>
@@ -41,7 +41,7 @@
                             <td>{{$url->normal_url}}</td>
                             <td>{{$url->shortened_url}}</td>
                             <td>{{date('d/m/Y', strtotime($url->created_at))}}</td>
-                            <td><a href="{{route('url.show', $url->id)}}" class="btn btn-info text-white">Visualizar</a></td>
+                            <td><a href="{{route('url.show.admin', $url->id)}}" class="btn btn-info text-white">Visualizar</a></td>
                         </tr>
                         @endforeach
                     </tbody>

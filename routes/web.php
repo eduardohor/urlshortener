@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ShortenerController;
 use App\Http\Controllers\UrlController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -11,33 +11,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user/create', [UserController::class, 'create'])->name('users.create');
-
-
 Route::middleware(['auth'])->group(function () {
+    Route::get('/shorten', [ShortenerController::class, 'index'])->name('shorten.index');
+    Route::post('/shorten', [ShortenerController::class, 'shortening'])->name('shorten.shorten');
 
-    Route::get('/shorten', [UrlController::class, 'shorten'])->name('shorten.index');
-    Route::post('/shorten', [UrlController::class, 'shortening'])->name('shorten.shorten');
-    Route::post('/shorte/create', [UrlController::class, 'store'])->name('shorten.store');
-
-    Route::delete('/user/url/{id}', [UserController::class, 'destroyUrl'])->name('user.destroy.url');
-    Route::put('/user/url/{id}/', [UserController::class, 'updateUrl'])->name('user.update.url');
-    Route::get('/user/url/{id}/edit', [UserController::class, 'editUrl'])->name('user.edit.urls');
-    Route::post('/user', [UserController::class, 'store'])->name('user.store');
-    Route::get('/user/url/{id}', [UserController::class, 'showUrl'])->name('user.show.urls');
-    Route::get('/user/urls', [UserController::class, 'listUrls'])->name('users.list.urls');
+    Route::get('/url/create', [UrlController::class, 'create'])->name('url.create');
+    Route::post('/url/create', [UrlController::class, 'store'])->name('url.store');
+    Route::delete('/url/{id}', [UrlController::class, 'destroy'])->name('destroy.url');
+    Route::put('/url/{id}/', [UrlController::class, 'update'])->name('update.url');
+    Route::get('/url/{id}/edit', [UrlController::class, 'edit'])->name('edit.url');
+    Route::get('/url/{id}', [UrlController::class, 'show'])->name('url.show');
+    Route::get('/urls', [UrlController::class, 'index'])->name('index.urls');
 });
 
 Route::middleware('auth', 'admin')->group(function () {
-    Route::delete('/admin/dashboard/user/{id}', [AdminController::class, 'destroyUser'])->name('user.destroy');
-    Route::get('/admin/dashboard/user/{id}/edit', [AdminController::class, 'editUser'])->name('user.edit');
-    Route::put('/admin/dashboard/user/{id}', [AdminController::class, 'updateUser'])->name('user.update');
-    Route::get('/admin/dashboard/user/{id}', [AdminController::class, 'showUser'])->name('user.show');
-    Route::get('/admin/dashboard/users', [AdminController::class, 'indexUsers'])->name('users.index');
+    Route::delete('/admin/dashboard/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::get('/admin/dashboard/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/admin/dashboard/user/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::get('/admin/dashboard/user/{id}', [UserController::class, 'show'])->name('user.show');
+    Route::get('/admin/dashboard/users', [UserController::class, 'index'])->name('users.index');
 
-    Route::delete('/admin/dashboard/url/{id}', [AdminController::class, 'destroyUrl'])->name('url.destroy');
-    Route::get('/admin/dashboard/url/{id}/edit', [AdminController::class, 'editUrl'])->name('url.edit');
-    Route::put('/admin/dashboard/url/{id}', [AdminController::class, 'updateUrl'])->name('url.update');
-    Route::get('/admin/dashboard/url/{id}', [AdminController::class, 'showUrl'])->name('url.show');
-    Route::get('/admin/dashboard/urls', [AdminController::class, 'indexUrls'])->name('urls.index');
+    Route::delete('/admin/dashboard/url/{id}', [UrlController::class, 'destroyByAdmin'])->name('url.destroy.admin');
+    Route::get('/admin/dashboard/url/{id}/edit', [UrlController::class, 'editByAdmin'])->name('url.edit.admin');
+    Route::put('/admin/dashboard/url/{id}', [UrlController::class, 'updateByAdmin'])->name('url.update.admin');
+    Route::get('/admin/dashboard/url/{id}', [UrlController::class, 'showByAdmin'])->name('url.show.admin');
+    Route::get('/admin/dashboard/urls', [UrlController::class, 'indexByAdmin'])->name('urls.index.admin');
 });

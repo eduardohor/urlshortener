@@ -6,7 +6,7 @@
                 Voltar
             </a>
 
-        <form action="{{route('shorten.store')}}" method="POST"  class='rounded shadow p-3 mt-3 p-md-5 text-start' style='background-color:#fff;'>
+        <form action="{{route('url.store')}}" method="POST"  class='rounded shadow p-3 mt-3 p-md-5 text-start' style='background-color:#fff;'>
             @csrf
             <div>
                 <h3 class='text-info h3 d-block mb-3'>Salvar sua Url</h3>

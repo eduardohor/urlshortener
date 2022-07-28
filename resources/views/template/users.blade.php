@@ -31,7 +31,7 @@
                     <a class="nav-link" href="{{route('shorten.index')}}">Encurtar Url</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{route('users.list.urls')}}">Minhas Url's</a>
+                    <a class="nav-link" href="{{route('index.urls')}}">Minhas Url's</a>
                   </li>
                   <li>
                     <form action="{{route('logout')}}" method="POST">

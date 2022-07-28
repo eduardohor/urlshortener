@@ -2,7 +2,7 @@
 @section('body')
     <h1 class="text-info mt-4">{{$url->title}}</h1>
 
-    <a href="{{route('users.list.urls')}}" class="btn btn-info text-white mb-3">
+    <a href="{{route('index.urls')}}" class="btn btn-info text-white mb-3">
         Voltar
     </a>
     @if(session()->has('edit'))
@@ -30,10 +30,10 @@
                 <td>{{$url->shortened_url}}</td>
                 <td>{{date('d/m/Y', strtotime($url->created_at))}}</td>
                 <td>
-                    <a href="{{route('user.edit.urls', $url->id)}}" class="btn btn-warning text-white">Editar</a>
+                    <a href="{{route('edit.url', $url->id)}}" class="btn btn-warning text-white">Editar</a>
                 </td>
                 <td>
-                    <form action="{{route('user.destroy.url', $url->id)}}" method="POST">
+                    <form action="{{route('destroy.url', $url->id)}}" method="POST">
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger text-white">Excluir</button>
