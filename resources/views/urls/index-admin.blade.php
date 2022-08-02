@@ -38,8 +38,8 @@
                             <th scope="row">{{$url->id}}</th>
                             <td>{{$url->user->name}}</td>
                             <td>{{$url->title}}</td>
-                            <td>{{$url->normal_url}}</td>
-                            <td>{{$url->shortened_url}}</td>
+                            <td><a class="link-dark" href="{{$url->normal_url}}" target="_blanck">{{$url->normal_url}}</td></a>
+                            <td><a class="link-dark" href="{{$url->shortened_url}}" target="_blanck">{{$url->shortened_url}}</a></td>
                             <td>{{date('d/m/Y', strtotime($url->created_at))}}</td>
                             <td><a href="{{route('url.show.admin', $url->id)}}" class="btn btn-info text-white">Visualizar</a></td>
                         </tr>

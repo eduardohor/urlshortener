@@ -21,8 +21,17 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               </ul>
               <ul class="navbar-nav">
+                @if(Auth::user()->photo)
+                      <li class="nav-item">
+                          <img class='rounded-circle mt-1 border border-primary border-2' height='35px' src="{{asset('https://url-shortener-api.s3.eu-west-1.amazonaws.com/' .Auth::user()->photo)}}">
+                      </li>
+                      @else
+                      <li class='nav-item'>
+                          <img class='rounded-circle mt-1 border border-primary border-2' height='35px'src="{{ asset('storage/profile/avatar.png') }}">
+                      </li>
+                  @endif
                   <li class="nav-item">
-                    <a href="" class="nav-link">Olá, {{Auth::user()->name}}</a>
+                    <a href="" class="nav-link">{{Auth::user()->name}}</a>
                   </li>
                   <li>
                     <form action="{{route('logout')}}" method="POST">
