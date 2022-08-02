@@ -25,7 +25,10 @@
               <ul class="navbar-nav">
                 @if(Auth::user())
                   <li class="nav-item">
-                    <a href="" class="nav-link">Olá, {{Auth::user()->name}}</a>
+                    <img class='rounded-circle mt-1 border border-primary border-2' height='35px' src="{{asset('https://url-shortener-api.s3.eu-west-1.amazonaws.com/' .Auth::user()->photo)}}">
+                  </li>
+                  <li class="nav-item">
+                    <a href="" class="nav-link">{{Auth::user()->name}}</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{route('shorten.index')}}">Encurtar Url</a>

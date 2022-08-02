@@ -39,7 +39,7 @@
                     @foreach($users as $user)
                         <tr>
                         @if($user->photo)
-                            <th><img src="{{ asset('storage/'.$user->photo) }}" width="60px" height="60px" class="border rounded-circle"></th>
+                            <th><img src="{{ asset('https://url-shortener-api.s3.eu-west-1.amazonaws.com/' . $user->photo) }}" width="60px" height="60px" class="border rounded-circle"></th>
                         @else    
                             <th><img src="{{ asset('storage/profile/avatar.png') }}" width="60px" height="60px" class="border rounded-circle"></th>
                         @endif

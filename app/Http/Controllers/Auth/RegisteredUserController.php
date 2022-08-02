@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Storage;
 
 class RegisteredUserController extends Controller
 {
@@ -35,8 +36,7 @@ class RegisteredUserController extends Controller
     {
 
         if ($request->photo) {
-            $file = $request['photo'];
-            $path = $file->store('profile', 'public');
+            $path = $request->photo->store('/images', 's3');
         } else {
             $path = $request['photo'];
         }
