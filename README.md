@@ -21,6 +21,9 @@ deverá conter um frontend que se comunique com o backend
 ## Deploy:
 https://url-shortener-edu.herokuapp.com/
 
+## Apresentação:
+https://youtu.be/xgRIB5bsaZA
+
 ### Autores
 
 - [@eduardohor 💻](https://github.com/eduardohor)
