@@ -44,20 +44,9 @@
                 <input type="email" id="email" name="email" placeholder='E-mail' class='form-control mb-3' required>
                 <input type="password" id="password" name="password" placeholder='Senha' class='form-control mb-3' required>
                 <input type="password" id="password" name="password_confirmation" required placeholder='Confirme sua senha' class='form-control mb-3' required>
-                <input type="tel" id="telephone" name="telephone" placeholder='Telefone' class='form-control mb-3' required>
-                <input type="date" id="birth_date" name="birth_date" placeholder='Data de nascimento' class='form-control mb-3' required>
-                <input type="text" id="cpf" name="cpf" placeholder='CPF' class='form-control mb-3' required>
                 <label for="photo" class="form-label">Selecione uma foto para o seu perfil.</label>
-                <input type="file" id="photo" name="photo" class="form-control form control-md mb-3">         
-            </div>
-            <div>
-                <label class='form-label text-info h3'>Endereço</label>
-                <input type="text" id="cep" name="cep" placeholder='CEP' class='form-control mb-3'>
-                <input type="text" id="street" name="street" placeholder='Rua' class='form-control mb-3' required>
-                <input type="text" id="number" name="number" placeholder='Número' class='form-control mb-3' required>
-                <input type="text" id="neighborhood" name="neighborhood" placeholder='Bairro' class='form-control mb-3' required>
-                <input type="text" id="city" name="city" placeholder='Cidade' class='form-control mb-3' required>
-                <input type="text" id="state" name="state" placeholder='Estado' class='form-control mb-3' required>
+                <input type="file" id="photo" name="image" class="form-control form control-md mb-3">  
+                <input name="is_admin" type="hidden" value="0">       
             </div>
             <button type='submit' class='btn btn-info d-block w-100'>Cadastrar</button>
         </form>

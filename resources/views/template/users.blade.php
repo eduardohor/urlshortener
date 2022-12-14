@@ -24,9 +24,9 @@
               </ul>
               <ul class="navbar-nav">
                 @if(Auth::user())
-                  @if(Auth::user()->photo)
+                  @if(Auth::user()->image)
                       <li class="nav-item">
-                          <img class='rounded-circle mt-1 border border-primary border-2' height='35px' src="{{asset('https://url-shortener-api.s3.eu-west-1.amazonaws.com/' .Auth::user()->photo)}}">
+                          <img class='rounded-circle mt-1 border border-primary border-2' height='35px' src="{{url('storage/'. Auth::user()->image)}}">
                       </li>
                       @else
                       <li class='nav-item'>

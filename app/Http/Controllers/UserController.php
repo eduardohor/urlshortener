@@ -50,23 +50,12 @@ class UserController extends Controller
         }
 
         if ($request->photo) {
-            $file = $data['photo'];
-            $data['photo'] = $file->store('profile', 'public');
+            $data['photo'] = $request->photo->store('users');
         }
 
         $user->update($data);
 
         return redirect()->route('user.show', compact('id'))->with('edit', 'Usuário editado com sucesso!');
-    }
-
-    public function store(StoreUpdateUserFormRequest $request)
-    {
-        $data = $request->all();
-        $data['password'] = bcrypt($request->password);
-
-        $this->model->create($data);
-
-        return redirect()->route('shorten.index');
     }
 
     public function destroy($id)

@@ -33,12 +33,13 @@ class StoreUpdateUserFormRequest extends FormRequest
             'email' => 'required',
             'password' => [
                 'required',
-                'min:4',
+                'min:8',
                 'max:12'
             ],
             'photo' => [
-                'file',
-                'mines:jpeg, png'
+                'nullable',
+                'image',
+                'max:1024',
             ],
         ];
         return $rules;

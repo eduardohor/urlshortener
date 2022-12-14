@@ -34,47 +34,22 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-
-        if ($request->photo) {
-            $path = $request->photo->store('/images', 's3');
-        } else {
-            $path = $request['photo'];
-        }
-
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'telephone' => ['required'],
-            'birth_date' => ['required'],
-            'cpf' => ['required', 'max:12'],
-            'photo' => ['file'],
-            'street' => ['required'],
-            'number' => ['required'],
-            'neighborhood' => ['required'],
-            'city' => ['required'],
-            'state' => ['required'],
-            'cep' => ['required'],
+            'password' => ['required','confirmed', Rules\Password::defaults()],
+            'image' => ['nullable','image','max:1024'],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'telephone' => $request->telephone,
-            'birth_date' => $request->birth_date,
-            'cpf' => $request->cpf,
-            'photo' =>  $path,
-            'street' => $request->street,
-            'number' => $request->number,
-            'neighborhood' => $request->neighborhood,
-            'city' => $request->city,
-            'state' => $request->state,
-            'cep' => $request->cep,
-        ]);
+        $data = $request->all();
+        
+        $data['password'] = Hash::make($request->password);
 
+        if ($request->image) {
+            $data['image'] = $request->image->store('users');
+        }
 
-
+        $user = User::create($data);
 
         event(new Registered($user));
 

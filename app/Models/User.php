@@ -21,17 +21,8 @@ class User extends Authenticatable
         'name',
         'is_admin',
         'email',
-        'photo',
-        'password',
-        'telephone',
-        'birth_date',
-        'cpf',
-        'street',
-        'number',
-        'neighborhood',
-        'city',
-        'state',
-        'cep',
+        'image',
+        'password'
     ];
 
     /**
